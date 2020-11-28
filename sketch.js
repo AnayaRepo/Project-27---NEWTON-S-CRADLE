@@ -29,23 +29,17 @@ function setup() {
 	startBobPositionX = 400;
 	startBobPositionY = 400;
 
-	bobObject1 = new Bob(startBobPositionX-bobDiameter*2, startBobPositionY, bobDiameter);
-	bobObject2 = new Bob(startBobPositionX-bobDiameter, startBobPositionY, bobDiameter);
-	bobObject3 = new Bob(startBobPositionX, startBobPositionY, bobDiameter);
-	bobObject4 = new Bob(startBobPositionX+bobDiameter, startBobPositionY, bobDiameter);
-	bobObject5 = new Bob(startBobPositionX+bobDiameter*2, startBobPositionY, bobDiameter);
+	bobObject1 = new Bob(300, 400, 50);
+	bobObject2 = new Bob(350, 400, 50);
+	bobObject3 = new Bob(400, 400, 50);
+	bobObject4 = new Bob(450, 400, 50);
+	bobObject5 = new Bob(500, 400, 50);
 
-	rope1 = new Rope(bobObject1.body, roof.body, bobDiameter/50, 0);
-	rope2 = new Rope(bobObject2.body, roof.body, bobDiameter/50, 0);
-	rope3 = new Rope(bobObject3.body, roof.body, bobDiameter/50, 0);
-	rope4 = new Rope(bobObject4.body, roof.body, bobDiameter/50, 0);
-	rope5 = new Rope(bobObject5.body, roof.body, bobDiameter/50, 0);
-
-	//rope1 = new Rope(roof.body, bobObject1.body, bobDiameter/50, 0);
-	//rope2 = new Rope(roof.body, bobObject2.body, bobDiameter/50, 0);
-	//rope3 = new Rope(roof.body, bobObject3.body, bobDiameter/50, 0);
-	//rope4 = new Rope(roof.body, bobObject4.body, bobDiameter/50, 0);
-	//rope5 = new Rope(roof.body, bobObject5.body, bobDiameter/50, 0);
+	rope1 = new Rope(bobObject1.body, roof.body, -bobDiameter*2, 0);
+	rope2 = new Rope(bobObject2.body, roof.body, -bobDiameter*1, 0);
+	rope3 = new Rope(bobObject3.body, roof.body, 0, 0);
+	rope4 = new Rope(bobObject4.body, roof.body, bobDiameter*1, 0);
+	rope5 = new Rope(bobObject5.body, roof.body, bobDiameter*2, 0);
 
 	Engine.run(engine);
   
@@ -75,7 +69,10 @@ function draw() {
 }
 
 function keyPressed() {
+	//if (keyCode === UP_ARROW) {
+	//	Matter.Body.applyForce(bobObject1.body, bobObject1.body.position,{x:-150, y:-270});
+	//}
 	if (keyCode === UP_ARROW) {
-		Matter.Body.applyForce(bobObject5.body, bobObject2.body.position,{x:550, y:-670});
+		Matter.Body.applyForce(bobObject1.body,bobObject5.body.position, {x:-170, y:10});
 	}
 }
